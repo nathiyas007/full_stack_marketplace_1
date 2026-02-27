@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safety Tips | Market Place</title>
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/about.css" />
+    <script src="../js/script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="nav-container">
+        <a href="../../index.html" class="logo">
+          <i class="fa-solid fa-shop"></i> Market Place
+        </a>
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchProduct()"/>
+        </div>
+        <nav class="nav-links">
+          <a href="../../index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+          <div class="nav-item dropdown">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Categories</span>
+            <div class="dropdown-menu">
+                <a href="#" onclick="filterByCategory('All')">All Categories</a>
+                <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+                <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+                <a href="#" onclick="filterByCategory('Furniture')">Properties</a>
+                <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+                <a href="#" onclick="filterByCategory('Property')">Property</a>
+            </div>
+          </div>
+          <a href="wishlist.html" class="nav-item">
+            <i class="fa-regular fa-heart"></i>
+            <span>Wishlist</span>
+          </a>
+          <div class="nav-item dropdown">
+            <i class="fa-regular fa-user"></i>
+            <span id="navAccountName">Account</span>
+            <div class="dropdown-menu right-aligned">
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="userprofile.html">My Profile</a>
+                <a href="client.html">My Orders</a>
+                <a href="about.html">About Us</a>
+                <a href="#" onclick="handleLogout()" id="logoutLink">Logout</a>
+            </div>
+          </div>
+          <a href="sell.html" class="sell-btn">
+            <i class="fa-solid fa-plus"></i> SELL
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero" style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);">
+      <div class="nav-container">
+        <h1>Your Safety is Our Priority</h1>
+        <p>Follow these essential tips to ensure a safe and secure trading experience on Market Place.</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="about-section">
+      <div class="about-grid" id="safety-tips-container">
+        <!-- Tips will be loaded here -->
+      </div>
+    </main>
+
+    <script src="../js/safety.js"></script>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>Market Place</h3>
+          <p>Buy and sell products easily near you.</p>
+        </div>
+        <div class="footer-box">
+          <h3>Categories</h3>
+          <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+          <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+          <a href="#" onclick="filterByCategory('Furniture')">Properties</a>
+          <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+          <a href="#" onclick="filterByCategory('Property')">Property</a>
+        </div>
+        <div class="footer-box">
+          <h3>Help</h3>
+          <a href="about.html">About Us</a>
+          <a href="faq.html">FAQ</a>
+          <a href="safety.html">Safety Tips</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Market Place. All rights reserved.</div>
+    </footer>
+  </body>
+</html>

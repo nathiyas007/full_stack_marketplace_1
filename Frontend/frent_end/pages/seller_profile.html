@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seller Profile | Market Place</title>
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/userprofile.css" />
+    <script src="../js/script.js" defer></script>
+    <script src="../js/seller_profile.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+        .rating-stars { color: #f1c40f; font-size: 1.2rem; }
+        .review-card { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+        .review-buyer { font-weight: bold; font-size: 0.9rem; }
+        .review-date { font-size: 0.8rem; color: #777; }
+        .review-comment { font-size: 0.95rem; color: #444; }
+        .contact-box { background: #f9f9f9; padding: 20px; border-radius: 12px; margin-top: 20px; border: 1px dashed var(--primary); }
+        .contact-box h4 { margin-top: 0; color: var(--primary); }
+        .contact-item { margin: 10px 0; font-size: 0.95rem; }
+        .contact-item i { width: 25px; color: var(--primary); }
+    </style>
+  </head>
+  <body onload="loadSellerProfile()">
+    <!-- Header -->
+    <header>
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="../../index.html" class="logo">
+          <i class="fa-solid fa-shop"></i> MarketPlace
+        </a>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for cars, phones, furniture..."
+            onkeyup="searchProduct()"
+          />
+        </div>
+
+        <!-- Navigation Icons -->
+        <nav class="nav-links">
+          <a href="../../index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+
+          <div class="nav-item dropdown">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Categories</span>
+            <div class="dropdown-menu">
+                <a href="#" onclick="filterByCategory('All')">All Categories</a>
+                <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+                <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+                <a href="#" onclick="filterByCategory('Furniture')">Properties</a>
+                <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+                <a href="#" onclick="filterByCategory('Property')">Property</a>
+            </div>
+          </div>
+
+          <a href="wishlist.html" class="nav-item">
+            <i class="fa-regular fa-heart"></i>
+            <span>Wishlist</span>
+          </a>
+
+          <div class="nav-item dropdown">
+            <i class="fa-regular fa-user"></i>
+            <span id="navAccountName">Account</span>
+            <div class="dropdown-menu right-aligned">
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="userprofile.html">My Profile</a>
+                <a href="client.html">My Orders</a>
+                <a href="about.html">About Us</a>
+                <a href="#" onclick="handleLogout()" id="logoutLink">Logout</a>
+            </div>
+          </div>
+
+          <a href="sell.html" class="sell-btn">
+            <i class="fa-solid fa-plus"></i> SELL
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="profile-container">
+      <!-- Left Side: Seller Info -->
+      <div class="profile-info">
+        <div class="user-avatar-section">
+          <img
+            src="../assets/images/profile.png"
+            alt="Profile"
+            class="profile-avatar"
+          />
+          <h2 id="sellerName">Seller Name</h2>
+          <div id="sellerRating" class="rating-stars">
+            <!-- Stars will be injected here -->
+          </div>
+          <p id="totalReviews" style="font-size: 0.9rem; color: #666; margin-top: 5px;">0 Reviews</p>
+        </div>
+        <hr />
+        
+        <div id="contactDetailsSection">
+             <!-- Contact details revealed only to buyers -->
+             <p style="font-size:0.85rem; color:#888; text-align:center;">Contact details hidden for privacy. Place an order to see details.</p>
+        </div>
+      </div>
+
+      <!-- Right Side: Listings and Reviews -->
+      <div class="profile-dashboard">
+        <div class="my-listings">
+          <h3><i class="fa-solid fa-tags"></i> Products by this Seller</h3>
+          <div id="sellerListings" class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px;">
+            <p>Loading...</p>
+          </div>
+        </div>
+
+        <div class="my-sales" style="margin-top: 30px;">
+          <h3><i class="fa-solid fa-star"></i> Buyer Reviews</h3>
+          <div id="sellerReviews">
+            <p>No reviews yet.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>Market Place</h3>
+          <p>Buy and sell products easily near you.</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Categories</h3>
+          <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+          <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+          <a href="#" onclick="filterByCategory('Furniture')">Furniture</a>
+          <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Help</h3>
+          <a href="about.html">About Us</a>
+          <a href="faq.html">FAQ</a>
+          <a href="safety.html">Safety Tips</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Market Place. All rights reserved.</div>
+    </footer>
+  </body>
+</html>

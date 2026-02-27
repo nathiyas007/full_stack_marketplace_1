@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile | Market Place</title>
+    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/edit-profile.css">
+    <script src="../js/script.js" defer></script>
+    <script src="../js/edit-profile.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body onload="initEditProfile()">
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <i class="fa-solid fa-shop"></i> MarketPlace
+            </a>
+
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search for items..." onkeyup="searchProduct()">
+            </div>
+
+            <nav class="nav-links">
+                <a href="../../index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Categories</span>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="filterByCategory('All')">All Categories</a>
+                        <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+                        <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+                        <a href="#" onclick="filterByCategory('Furniture')">Properties</a>
+                        <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+                        <a href="#" onclick="filterByCategory('Property')">Property</a>
+                    </div>
+                </div>
+
+                <a href="wishlist.html" class="nav-item">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>Wishlist</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <i class="fa-regular fa-user"></i>
+                    <span id="navAccountName">Account</span>
+                    <div class="dropdown-menu right-aligned">
+                        <a href="login.html" id="loginLink">Login</a>
+                        <a href="userprofile.html">My Profile</a>
+                        <a href="client.html">My Orders</a>
+                        <a href="about.html">About Us</a>
+                        <a href="#" onclick="handleLogout()" id="logoutLink">Logout</a>
+                    </div>
+                </div>
+
+                <a href="sell.html" class="sell-btn">
+                    <i class="fa-solid fa-plus"></i> SELL
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="edit-profile-container">
+        <div class="edit-profile-card">
+            <div class="card-header">
+                <h2><i class="fa-solid fa-user-pen"></i> Edit Profile</h2>
+                <p>Update your personal information</p>
+            </div>
+            
+            <form id="editProfileForm" onsubmit="handleUpdateProfile(event)">
+                <div class="avatar-edit-section">
+                    <div id="profileImagePreview" class="letter-avatar-large">U</div>
+                    <p class="avatar-hint">Avatar is generated from your name</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullName"><i class="fa-solid fa-user"></i> Full Name</label>
+                    <input type="text" id="fullName" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><i class="fa-solid fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile"><i class="fa-solid fa-phone"></i> Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address"><i class="fa-solid fa-location-dot"></i> Address</label>
+                    <textarea id="address" name="address" rows="3" placeholder="Enter your delivery address" required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="window.location.href='userprofile.html'">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn-primary" id="saveBtn">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-box">
+                <h3>Market Place</h3>
+                <p>Buy and sell products easily near you.</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Categories</h3>
+                <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+                <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+                <a href="#" onclick="filterByCategory('Furniture')">Furniture</a>
+                <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Help</h3>
+                <a href="about.html">About Us</a>
+                <a href="faq.html">FAQ</a>
+                <a href="safety.html">Safety Tips</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Market Place. All rights reserved.</div>
+    </footer>
+</body>
+</html>

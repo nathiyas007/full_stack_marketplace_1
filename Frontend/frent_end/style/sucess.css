@@ -1,0 +1,109 @@
+/* --- SUCCESS PAGE PREMIUM CSS --- */
+
+.order-success-container {
+    min-height: 80vh; /* Footer-ku space vida height mathiruken */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #ffffff 0%, #f0fdfc 100%);
+    padding: 40px 20px;
+}
+
+.success-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 50px 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 47, 52, 0.1);
+    border: 1px solid rgba(35, 229, 219, 0.2);
+    animation: slideUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Success Icon with Pulse Animation */
+.success-box i {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    font-size: 45px;
+    border-radius: 50%;
+    line-height: 90px;
+    margin: 0 auto 25px;
+    display: block;
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.success-box h1 {
+    font-size: 26px;
+    color: #002f34;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.success-box p {
+    color: #64748b;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+/* Styled Order Info Card */
+.order-details {
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: left;
+    font-size: 15px;
+    margin-bottom: 30px;
+    border: 1px dashed #cbd5e1;
+}
+
+.order-details p {
+    margin-bottom: 12px;
+    color: #334155;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-details p:last-child { margin-bottom: 0; }
+
+.order-details strong {
+    color: #002f34;
+    font-weight: 600;
+}
+
+/* Premium Button */
+.home-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #002f34 0%, #005f5f 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 47, 52, 0.2);
+}
+
+.home-btn:hover {
+    transform: translateY(-3px);
+    background: #23e5db;
+    color: #002f34;
+    box-shadow: 0 15px 35px rgba(35, 229, 219, 0.4);
+}
+
+/* ANIMATIONS */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}

@@ -1,0 +1,228 @@
+body {
+    background: var(--bg-body);
+    color: var(--text-main);
+    margin: 0;
+}
+
+.buy-now-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    align-items: flex-start; 
+}
+
+.left-box {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-summary, .order-summary {
+    background: var(--white);
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.product-summary:hover, .order-summary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 47, 52, 0.1);
+}
+
+.product-summary img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.product-summary h2 {
+    font-size: 22px;
+    color: #002f34;
+    margin: 10px 0;
+}
+
+.seller {
+    font-size: 14px;
+    color: #666;
+    background: #f9f9f9;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 50px;
+}
+
+.price {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1a8917;
+    margin: 15px 0;
+}
+
+.delivery {
+    font-size: 14px;
+    color: #555;
+    background: #e6f7f7;
+    padding: 10px;
+    border-radius: 10px;
+    border-left: 4px solid #23e5db;
+}
+
+/* Order Summary Row */
+.order-summary h3 {
+    font-size: 18px;
+    color: #002f34;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.order-summary .row {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 15px;
+    color: #555;
+}
+
+.order-summary .total {
+    font-size: 20px;
+    font-weight: 800;
+    color: #002f34;
+    padding-top: 10px;
+}
+
+.right-box {
+    flex: 1.2; 
+    background: var(--white);
+    padding: 35px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+}
+
+.right-box h3 {
+    font-size: 20px;
+    color: #002f34;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.right-box h3::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: #23e5db;
+    border-radius: 10px;
+}
+
+.right-box input,
+.right-box textarea {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border: 1.5px solid #e0e6e6;
+    border-radius: 12px;
+    font-size: 15px;
+    background: #fafcfc;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Padding-al box perusaagama iruka */
+}
+
+.right-box input:focus,
+.right-box textarea:focus {
+    outline: none;
+    border-color: #23e5db;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(35, 229, 219, 0.1);
+}
+
+.right-box textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Payment & Terms */
+.payment, .terms {
+    background: #f8fbfb;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.payment:hover, .terms:hover {
+    border-color: #23e5db;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    accent-color: #002f34;
+    width: 18px;
+    height: 18px;
+}
+
+/* Order Button Animation */
+.place-order-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 16px;
+    background: linear-gradient(135deg, #002f34 0%, #005f5f 100%);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0, 47, 52, 0.2);
+}
+
+.place-order-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(35, 229, 219, 0.3);
+    background: #23e5db;
+    color: #002f34;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .buy-now-container {
+        flex-direction: column;
+        margin-top: 20px;
+        padding: 10px;
+        gap: 20px;
+    }
+    .left-box, .right-box {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+    .product-summary img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-summary h2 {
+        font-size: 18px;
+    }
+    .price {
+        font-size: 22px;
+    }
+    .place-order-btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+}

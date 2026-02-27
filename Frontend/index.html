@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Place</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style/index.css" />
+
+  <!-- JS -->
+  <script src="js/script.js" defer></script>
+  <script src="js/home.js" defer></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+
+<body>
+
+<header>
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <i class="fa-solid fa-shop"></i> Market Place
+    </a>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search for cars, phones, furniture..."
+        onkeyup="searchProduct()"
+      />
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-links">
+
+      <a href="index.html" class="nav-item active">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+
+      <div class="nav-item dropdown">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>Categories</span>
+        <div class="dropdown-menu">
+          <a href="#" onclick="filterByCategory('All')">All Categories</a>
+          <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+          <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+          <a href="#" onclick="filterByCategory('Furniture')">Furniture</a>
+          <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+          <a href="#" onclick="filterByCategory('Property')">Property</a>
+        </div>
+      </div>
+
+      <a href="pages/wishlist.html" class="nav-item">
+        <i class="fa-regular fa-heart"></i>
+        <span>Wishlist</span>
+      </a>
+
+      <div class="nav-item dropdown">
+        <i class="fa-regular fa-user"></i>
+        <span id="navAccountName">Account</span>
+        <div class="dropdown-menu right-aligned">
+          <a href="pages/login.html" id="loginLink">Login</a>
+          <a href="pages/userprofile.html">My Profile</a>
+          <a href="pages/client.html">My Orders</a>
+          <a href="pages/about.html">About Us</a>
+          <a href="#" onclick="handleLogout()" id="logoutLink">Logout</a>
+        </div>
+      </div>
+
+      <a href="pages/sell.html" class="sell-btn">
+        <i class="fa-solid fa-plus"></i> SELL
+      </a>
+
+    </nav>
+  </div>
+</header>
+
+
+<!-- Banner -->
+<section class="banner-slider">
+  <div class="slides-container">
+    <div class="slide fade">
+      <img src="assets/images/banner4.png" alt="Banner 1" />
+    </div>
+    <div class="slide fade">
+      <img src="assets/images/banner2.jpg" alt="Banner 2" />
+    </div>
+    <div class="slide fade">
+      <img src="assets/images/about_community.png" alt="Banner 3" />
+    </div>
+  </div>
+
+  <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+  <a class="next" onclick="moveSlide(1)">&#10095;</a>
+
+  <div class="dots-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+</section>
+
+
+<!-- Products -->
+<section class="prd_section">
+  <div class="prd_box" id="productContainer">
+    <p style="text-align: center; width: 100%">Loading products...</p>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-box">
+      <h3>Market Place</h3>
+      <p>Buy and sell products easily near you.</p>
+    </div>
+
+    <div class="footer-box">
+      <h3>Categories</h3>
+      <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+      <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+      <a href="#" onclick="filterByCategory('Furniture')">Furniture</a>
+      <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+    </div>
+
+    <div class="footer-box">
+      <h3>Help</h3>
+      <a href="pages/about.html">About Us</a>
+      <a href="pages/faq.html">FAQ</a>
+      <a href="pages/safety.html">Safety Tips</a>
+      <a href="pages/contact.html">Contact Us</a>
+    </div>
+
+    <div class="footer-box">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-twitter"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Market Place. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

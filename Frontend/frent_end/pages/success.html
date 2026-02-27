@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Placed | Market Place</title>
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/sucess.css" />
+    <script src="../js/script.js" defer></script>
+    <script src="../js/success.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="../../index.html" class="logo">
+          <i class="fa-solid fa-shop"></i> MarketPlace
+        </a>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for cars, phones, furniture..."
+            onkeyup="searchProduct()"
+          />
+        </div>
+
+        <!-- Navigation Icons -->
+        <nav class="nav-links">
+          <a href="../../index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+
+
+          
+          <div class="nav-item dropdown">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Categories</span>
+            <div class="dropdown-menu">
+                <a href="#" onclick="filterByCategory('All')">All Categories</a>
+                <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+                <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+                <a href="#" onclick="filterByCategory('Furniture')">Properties</a>
+                <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+                <a href="#" onclick="filterByCategory('Property')">Property</a>
+            </div>
+          </div>
+
+          <a href="wishlist.html" class="nav-item">
+            <i class="fa-regular fa-heart"></i>
+            <span>Wishlist</span>
+          </a>
+
+          <div class="nav-item dropdown">
+            <i class="fa-regular fa-user"></i>
+            <span id="navAccountName">Account</span>
+            <div class="dropdown-menu right-aligned">
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="userprofile.html">My Profile</a>
+                <a href="client.html" class="active">My Orders</a>
+                <a href="about.html">About Us</a>
+                <a href="#" onclick="handleLogout()" id="logoutLink">Logout</a>
+            </div>
+          </div>
+
+          <a href="sell.html" class="sell-btn">
+            <i class="fa-solid fa-plus"></i> SELL
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Success Content -->
+    <main>
+      <div class="order-success-container">
+        <div class="success-box">
+          <i class="fa-solid fa-check"></i>
+
+          <h1>Order Placed Successfully!</h1>
+          <p>Your order has been placed and is currently <b>Pending</b> seller acceptance.</p>
+
+          <div class="order-details">
+            <p><strong>Product:</strong> <span id="successProductName">Loading...</span></p>
+            <p><strong>Order ID:</strong> <span id="successOrderId">...</span></p>
+            <p><strong>Payment:</strong> <span id="successPayment">...</span></p>
+            <p><strong>Delivery:</strong> <span id="successDelivery">...</span></p>
+          </div>
+
+          <a href="../../index.html">
+            <button class="home-btn">Go to Home</button>
+          </a>
+        </div>
+      </div>
+    </main>
+
+  </body>
+</html>

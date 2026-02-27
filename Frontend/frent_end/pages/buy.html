@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Product | Market Place</title>
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/buy.css" />
+    <script src="../js/script.js" defer></script>
+    <script src="../js/buy.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body onload="initBuyPage()">
+    <!-- Header -->
+    <header>
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="../../index.html" class="logo">
+          <i class="fa-solid fa-shop"></i> MarketPlace
+        </a>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for cars, phones, furniture..."
+            onkeyup="searchProduct()"
+          />
+        </div>
+
+        <!-- Navigation Icons -->
+        <nav class="nav-links">
+          <a href="../../index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+
+
+          
+          <div class="nav-item dropdown">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Categories</span>
+            <div class="dropdown-menu">
+                <a href="#" onclick="filterByCategory('All')">All Categories</a>
+                <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+                <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+                <a href="#" onclick="filterByCategory('Furniture')">Properties</a>
+                <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+                <a href="#" onclick="filterByCategory('Property')">Property</a>
+            </div>
+          </div>
+
+          <a href="wishlist.html" class="nav-item">
+            <i class="fa-regular fa-heart"></i>
+            <span>Wishlist</span>
+          </a>
+
+          <div class="nav-item dropdown">
+            <i class="fa-regular fa-user"></i>
+            <span id="navAccountName">Account</span>
+            <div class="dropdown-menu right-aligned">
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="userprofile.html">My Profile</a>
+                <a href="client.html">My Orders</a>
+                <a href="about.html">About Us</a>
+                <a href="#" onclick="handleLogout()" id="logoutLink">Logout</a>
+            </div>
+          </div>
+
+          <a href="sell.html" class="sell-btn">
+            <i class="fa-solid fa-plus"></i> SELL
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Buy/Order Form Content -->
+    <main>
+      <div class="buy-now-container">
+        <!-- Left Box: Product Details -->
+        <div class="left-box">
+          <div class="product-summary">
+            <img id="buyPrdImage" src="" alt="Product" />
+            <h2 id="buyPrdName">Loading...</h2>
+            <p class="seller">Sold by: <b id="buyPrdSeller">Marketplace Vendor</b></p>
+            <p class="price" id="buyPrdPrice">...</p>
+            <p class="delivery">📦 Estimated Delivery: 3–5 Days</p>
+          </div>
+
+          <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div class="row">
+              <span>Product Price</span>
+              <span id="buyPrdPriceSummary">...</span>
+            </div>
+            <div class="row">
+              <span>Delivery Charge</span>
+              <span>₹50</span>
+            </div>
+            <hr />
+            <div class="row total">
+              <span>Total Amount</span>
+              <span id="buyTotalPrice">...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Box: Form -->
+        <div class="right-box">
+          <h3>Delivery Details</h3>
+
+          <form onsubmit="handleOrderSubmit(event)">
+            <input id="orderName" type="text" placeholder="Full Name" required />
+
+            <input
+              id="orderMobile"
+              type="tel"
+              placeholder="Mobile Number"
+              pattern="[0-9]{10}"
+              maxlength="10"
+              required
+            />
+
+            <textarea id="orderAddress" placeholder="Address" required></textarea>
+
+            <input id="orderCity" type="text" placeholder="City" required />
+
+            <input
+              id="orderPincode"
+              type="text"
+              placeholder="Pincode"
+              pattern="[0-9]{6}"
+              maxlength="6"
+              required
+            />
+
+            <h3>Payment Method</h3>
+            <label class="payment">
+              <input type="radio" name="payment" checked />
+              Cash on Delivery
+            </label>
+
+            <label class="terms">
+              <input type="checkbox" required />
+              I agree to Terms & Conditions
+            </label>
+
+            <button type="submit" class="place-order-btn">Place Order</button>
+          </form>
+        </div>
+      </div>
+    </main>
+<footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>Market Place</h3>
+          <p>Buy and sell products easily near you.</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Categories</h3>
+          <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+          <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+          <a href="#" onclick="filterByCategory('Furniture')">Furniture</a>
+          <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Help</h3>
+          <a href="about.html">About Us</a>
+          <a href="faq.html">FAQ</a>
+          <a href="safety.html">Safety Tips</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2025 Market Place. All rights reserved.</div>
+    </footer>
+  </body>
+</html>

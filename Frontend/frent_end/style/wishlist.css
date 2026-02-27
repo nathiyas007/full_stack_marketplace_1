@@ -1,0 +1,188 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    background-color: #f5fdfc; /* Light mint tint background */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Page Header */
+.wishlist-header {
+    text-align: center;
+    margin: 40px 0 20px;
+}
+
+.wishlist-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+/* Search Bar Area */
+.search-filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.search-input-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.search-input-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.search-input-wrapper input {
+    width: 100%;
+    padding: 14px 15px 14px 45px;
+    border-radius: 50px;
+    border: 1px solid #e0e0e0;
+    background: var(--white);
+    outline: none;
+    font-size: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: 0.3s;
+}
+
+.search-input-wrapper input:focus {
+    box-shadow: 0 0 0 4px rgba(35, 229, 219, 0.1);
+    border-color: var(--accent);
+}
+
+.filter-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    transition: 0.3s;
+}
+
+.filter-btn:hover {
+    background: #f0f0f0;
+}
+
+/* Grid Layout */
+#wishlistContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 0 20px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Product Card */
+.wishlist-card {
+    background: transparent;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.wishlist-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-box {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+}
+
+.card-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Heart Icon (Remove) */
+.remove-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: 0.2s;
+    border: none;
+    z-index: 2;
+}
+
+.remove-btn i {
+    color: #ff4757; /* Red heart */
+    font-size: 16px;
+}
+
+.remove-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Card Details */
+.card-details {
+    padding: 15px 5px;
+}
+
+.card-category {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.card-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+}
+
+.card-old-price {
+    font-size: 14px;
+    color: #aaa;
+    text-decoration: line-through;
+    font-weight: 500;
+}

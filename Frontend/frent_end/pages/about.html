@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Market Place</title>
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/about.css" />
+    <script src="../js/script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="../../index.html" class="logo">
+          <i class="fa-solid fa-shop"></i> Market Place
+        </a>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for cars, phones, furniture..."
+            onkeyup="searchProduct()"
+          />
+        </div>
+
+        <!-- Navigation Icons -->
+        <nav class="nav-links">
+          <a href="../../index.html" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+          </a>
+
+
+          
+          <div class="nav-item dropdown">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Categories</span>
+            <div class="dropdown-menu">
+                <a href="#" onclick="filterByCategory('All')">All Categories</a>
+                <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+                <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+                <a href="#" onclick="filterByCategory('Furniture')">Properties</a>
+                <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+                <a href="#" onclick="filterByCategory('Property')">Property</a>
+            </div>
+          </div>
+
+          <a href="wishlist.html" class="nav-item">
+            <i class="fa-regular fa-heart"></i>
+            <span>Wishlist</span>
+          </a>
+
+          <div class="nav-item dropdown">
+            <i class="fa-regular fa-user"></i>
+            <span id="navAccountName">Account</span>
+            <div class="dropdown-menu right-aligned">
+                <a href="login.html" id="loginLink">Login</a>
+                <a href="userprofile.html">My Profile</a>
+                <a href="client.html">My Orders</a>
+                <a href="about.html" class="active">About Us</a>
+                <a href="#" onclick="handleLogout()" id="logoutLink">Logout</a>
+            </div>
+          </div>
+
+          <a href="sell.html" class="sell-btn">
+            <i class="fa-solid fa-plus"></i> SELL
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+      <div class="nav-container">
+        <h1>Connecting Communities Through Commerce</h1>
+        <p>Market Place is more than just a platform; it's a vibrant community where you can buy, sell, and discover unique items with ease and safety.</p>
+      </div>
+    </section>
+
+    <!-- Main About Content -->
+    <main class="about-section">
+      <!-- Our Story -->
+      <div class="about-content-row">
+        <div class="about-text">
+          <h2>Our Mission</h2>
+          <p>Founded with the simple idea of making local trade accessible to everyone, Market Place has grown into a trusted destination for millions. We believe that everyone has something of value to share, and we're here to provide the tools to make that happen.</p>
+          <p>Our mission is to empower individuals and small businesses by providing a seamless, secure, and enjoyable marketplace experience that fosters local connections and sustainable consumption.</p>
+        </div>
+        <div class="about-image">
+          <img src="../assets/images/about_community.png" alt="Community Market">
+        </div>
+      </div>
+
+      <!-- Key Features / Why Us -->
+      <div class="about-grid">
+        <div class="about-card">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>Secure Trade</h3>
+          <p>We prioritize your safety with verified profiles and secure communication channels to ensure every transaction is protected.</p>
+        </div>
+        <div class="about-card">
+          <i class="fa-solid fa-bolt"></i>
+          <h3>Fast & Easy</h3>
+          <p>Post your ad in under 60 seconds. Our intuitive interface makes buying and selling as simple as a few clicks.</p>
+        </div>
+        <div class="about-card">
+          <i class="fa-solid fa-people-arrows"></i>
+          <h3>Local Connections</h3>
+          <p>Find great deals right in your neighborhood. Support your local community while finding unique items at great prices.</p>
+        </div>
+      </div>
+
+      <!-- How it Works -->
+      <div class="stats-section">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">10k+</span>
+            <span class="stat-label">Active Users</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">5k+</span>
+            <span class="stat-label">Items Sold</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">5+</span>
+            <span class="stat-label">Categories</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Support</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div style="text-align: center; margin-top: 100px;">
+        <h2>Ready to start trading?</h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Join millions of users and start buying or selling today.</p>
+        <div style="display: flex; justify-content: center; gap: 20px;">
+          <a href="../../index.html" class="sell-btn" style="background: var(--primary); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600;">Start Buying</a>
+          <a href="sell.html" class="sell-btn" style="padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600;">Start Selling</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>Market Place</h3>
+          <p>Buy and sell products easily near you.</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Categories</h3>
+          <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
+          <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
+          <a href="#" onclick="filterByCategory('Furniture')">Properties</a>
+          <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
+          <a href="#" onclick="filterByCategory('Property')">Property</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Help</h3>
+          <a href="about.html">About Us</a>
+          <a href="faq.html">FAQ</a>
+          <a href="safety.html">Safety Tips</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Market Place. All rights reserved.</div>
+    </footer>
+  </body>
+</html>

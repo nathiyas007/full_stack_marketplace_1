@@ -1,0 +1,341 @@
+/* --- USER PROFILE PREMIUM CSS --- */
+body {
+    background-color: var(--bg-body);
+}
+
+.profile-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* User Profile Card */
+.profile-info {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 25px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.user-avatar i {
+    font-size: 80px;
+    color: #002f34;
+}
+
+.user-text h2 {
+    font-size: 18px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.user-text h3 {
+    font-size: 28px;
+    color: #002f34;
+    margin: 5px 0;
+}
+
+.user-text p {
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Stats Boxes */
+.stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.stat-box {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: 0.3s;
+}
+
+.stat-box:hover { transform: translateY(-5px); }
+
+.stat-box i {
+    font-size: 35px;
+    color: #1dcac7;
+    background: #e9fdfc;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.stat-box h3 { color: #666; font-size: 16px; }
+.stat-box p { font-size: 28px; font-weight: 800; color: #002f34; }
+
+.user-avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.profile-info h2 {
+    color: var(--text-dark);
+    margin: 10px 0 5px;
+}
+
+.profile-info p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.profile-stats-summary {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.edit-profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e9fdfc;
+    color: #1dcac7;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s;
+    border: 1px solid #1dcac722;
+}
+
+.edit-profile-link:hover {
+    background: #1dcac7;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(29, 202, 199, 0.2);
+}
+
+/* ORDER CARDS (SELLER DASHBOARD) */
+.order-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.order-card .product-info {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.order-card .product-info img {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.order-card .product-info .title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.order-card .status-badge {
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.cancelled-notification {
+    padding: 15px;
+    border: 1px solid #ffa39e;
+    background: #fff1f0;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    color: #d93025;
+    font-size: 14px;
+}
+
+.buyer-details-box {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.buyer-details-box b { color: #222; }
+
+/* Products Listing Section */
+.my-purchases, .my-listings, .my-sales {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 20px;
+}
+
+.products-section h2 {
+    margin-bottom: 25px;
+    color: #002f34;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.product-item:hover {
+    background: #fafafa;
+    border-color: #1dcac7;
+}
+
+.product-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-right: 20px;
+    background: #f8f9fa;
+    padding: 5px;
+}
+
+.product-info { flex: 1; }
+
+.product-info .title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #002f34;
+}
+
+.product-info .price {
+    font-size: 16px;
+    color: #10b981;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.edit {
+    background-color: #e9fdfc;
+    color: #1dcac7;
+}
+
+.edit:hover {
+    background-color: #1dcac7;
+    color: white;
+}
+
+.delete {
+    background-color: #fff1f1;
+    color: #ff4d4d;
+}
+
+.delete:hover {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .user-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .stats {
+        flex-direction: column;
+    }
+    .stat-box {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-item { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 15px;
+    }
+    .product-item img { 
+        margin: 0 0 15px 0; 
+        width: 100px;
+        height: 100px;
+    }
+    .actions { 
+        width: 100%; 
+        margin-top: 15px; 
+        flex-direction: column;
+    }
+    .btn { 
+        width: 100%;
+        justify-content: center; 
+    }
+    .user-text h3 {
+        font-size: 22px;
+    }
+    .profile-container { margin: 20px auto; }
+    .my-purchases, .my-listings, .my-sales {
+        padding: 20px;
+    }
+}

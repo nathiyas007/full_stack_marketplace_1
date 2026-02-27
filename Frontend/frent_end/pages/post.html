@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Success | Market Place</title>
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/post.css" />
+    <script src="../js/script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-left">
+        <button class="toggle-btn" onclick="toggleUserMenu()">
+          <i class="fa-solid fa-user"></i>
+        </button>
+        <div class="logo">
+          <a href="../../index.html">Market Place</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="Category_dropdown">
+          <button class="Categorybutton" onclick="toggleCategoryMenu()">
+            Category ▼
+          </button>
+          <div id="categoryMenu" class="dropdown-content">
+            <a href="#">Electronics</a>
+            <a href="#">Vehicles</a>
+            <a href="#">Furniture</a>
+            <a href="#">Fashion</a>
+            <a href="#">Property</a>
+          </div>
+        </div>
+
+        <a href="sell.html" class="sell-button">+ Sell</a>
+        <div class="cart"><i class="fa-solid fa-heart"></i></div>
+      </div>
+
+      <!-- User Menu -->
+      <div id="userMenu" class="user-menu">
+        <p><a href="about.html">About</a></p>
+        <p><a href="userprofile.html">Profile Status</a></p>
+        <p><a href="login.html">Logout</a></p>
+         <p><a href="client.html">Order</a></p>
+      </div>
+    </header>
+
+    <!-- Success Content -->
+    <main>
+      <div class="post-success-container">
+        <div class="success-box">
+          <div class="check-icon">✓</div>
+
+          <h1>Your Product is Successfully Posted!</h1>
+          <p>Your ad is now live and visible to buyers.</p>
+
+          <div class="post-details">
+            <p><strong>Product:</strong> Portronics Portable Speaker</p>
+            <p><strong>Category:</strong> Electronics</p>
+            <p><strong>Status:</strong> Active</p>
+          </div>
+
+          <a href="userprofile.html">
+            <button class="action-btn">View My Ads</button>
+          </a>
+
+          <a href="../../index.html">
+            <button class="home-btn">Go to Home</button>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>Market Place</h3>
+          <p>Buy and sell products easily near you.</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Categories</h3>
+          <a href="#">Electronics</a>
+          <a href="#">Vehicles</a>
+          <a href="#">Furniture</a>
+          <a href="#">Fashion</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Help</h3>
+          <a href="#">FAQ</a>
+          <a href="#">Safety Tips</a>
+          <a href="#">Contact Us</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2025 Market Place. All rights reserved.</div>
+    </footer>
+  </body>
+</html>

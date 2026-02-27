@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Market Place</title>
+    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-shop"></i>
+                <span>Market Place</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active" data-section="dashboard">
+                    <i class="fa-solid fa-gauge"></i> Dashboard
+                </a>
+                <a href="#" class="nav-link" data-section="products">
+                    <i class="fa-solid fa-box"></i> Products
+                </a>
+                <a href="#" class="nav-link" data-section="orders">
+                    <i class="fa-solid fa-cart-shopping"></i> Orders
+                </a>
+                <a href="#" class="nav-link" data-section="qfa">
+                    <i class="fa-solid fa-question-circle"></i> Q&A
+                </a>
+                <a href="#" class="nav-link" data-section="safety">
+                    <i class="fa-solid fa-shield-halved"></i> Safety Tips
+                </a>
+                <a href="#" class="nav-link" data-section="users">
+                    <i class="fa-solid fa-users"></i> Users
+                </a>
+                <a href="#" class="nav-link" data-section="contacts">
+                    <i class="fa-solid fa-envelope"></i> Messages
+                </a>
+                <a href="#" onclick="handleLogout()" class="nav-link logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 id="section-title">Dashboard</h1>
+                <div class="admin-profile">
+                    <span id="admin-name">Admin</span>
+                    <i class="fa-solid fa-circle-user"></i>
+                </div>
+            </header>
+
+            <div id="content-area">
+                <!-- Sections will be loaded here dynamically -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

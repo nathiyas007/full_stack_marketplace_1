@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | Market Place</title>
+    <link rel="stylesheet" href="../style/index.css" />
+    <link rel="stylesheet" href="../style/login.css" />
+    <script src="../js/script.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <!-- Sign Up Content -->
+    <main class="login-page">
+      <div class="login-card">
+        <div class="card-header">
+           <h2>Create Account</h2>
+           <p>Join our marketplace to buy and sell items</p>
+        </div>
+
+        <form onsubmit="handleSignup(event)" class="login-form">
+          <div class="form-group">
+             <label for="signupName">Full Name</label>
+             <div class="input-wrapper">
+               <i class="fa-regular fa-user"></i>
+               <input id="signupName" type="text" placeholder="Nathiya" required />
+             </div>
+          </div>
+
+          <div class="form-group">
+             <label for="signupEmail">Email Address</label>
+             <div class="input-wrapper">
+               <i class="fa-regular fa-envelope"></i>
+               <input id="signupEmail" type="email" placeholder="name@example.com" required />
+             </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="signupMobile">Mobile Number</label>
+            <div class="input-wrapper">
+               <i class="fa-solid fa-phone"></i>
+               <input id="signupMobile" type="tel" placeholder="+91 1234567890" required />
+            </div>
+         </div>
+
+         <div class="form-group">
+            <label for="signupAddress">Address / Location</label>
+            <div class="input-wrapper">
+               <i class="fa-solid fa-location-dot"></i>
+               <input id="signupAddress" type="text" placeholder="City, State" required />
+            </div>
+         </div>
+
+         <div class="form-group">
+            <label for="signupPassword">Password</label>
+            <div class="input-wrapper">
+               <i class="fa-solid fa-lock"></i>
+               <input id="signupPassword" type="password" placeholder="••••••••" required />
+            </div>
+         </div>
+
+         <div class="form-group">
+            <label for="signupConfirmPassword">Confirm Password</label>
+            <div class="input-wrapper">
+               <i class="fa-solid fa-lock"></i>
+               <input id="signupConfirmPassword" type="password" placeholder="••••••••" required />
+            </div>
+         </div>
+
+          <button type="submit" class="login-btn">
+             <span>Sign Up</span>
+             <i class="fa-solid fa-user-plus"></i>
+          </button>
+        </form>
+
+        <div class="card-footer">
+           <p>Already have an account? <a href="login.html">Sign In</a></p>
+           <div class="auth-extra-links" style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;">
+              <a href="about.html" style="color: var(--text-muted); font-size: 14px; text-decoration: none;"><i class="fa-solid fa-circle-info"></i> About Us</a>
+           </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -24,6 +24,24 @@ try:
 except Exception as e:
     print(f"Database connection error: {e}")
 
+from fastapi import Request
+from fastapi.responses import JSONResponse
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=500,
+        content={"detail": str(exc)},
+    )
+
+@app.get("/api/health")
+def health_check(db: Session = Depends(get_db)):
+    try:
+        db.execute("SELECT 1")
+        return {"status": "ok", "database": "connected"}
+    except Exception as e:
+        return {"status": "error", "detail": str(e)}
+
 app.include_router(auth.router, prefix="/api")
 app.include_router(product.router, prefix="/api")
 app.include_router(wishlist.router, prefix="/api")

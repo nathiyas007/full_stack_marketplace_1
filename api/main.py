@@ -1,7 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from db.database import engine, Base
+from sqlalchemy.orm import Session
+from db.database import engine, Base, get_db
 from routers import auth, product, wishlist, order, category, upload, admin, qfa, safety, contact, user, review
 from models.review import Review
 

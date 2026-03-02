@@ -61,7 +61,7 @@ function displayProducts(products) {
             </span>
           </div>
           <div class="prd_action">
-            <a href="frent_end/pages/prd_view1.html?id=${p.id}" style="width: 100%;">
+            <a href="frontend/pages/prd_view1.html?id=${p.id}" style="width: 100%;">
               <button style="width: 100%;">${p.is_sold ? 'View Sold Item' : 'View product'}</button>
             </a>
           </div>
@@ -84,7 +84,7 @@ async function toggleWishlist(element, productId) {
   const user = Auth.getCurrentUser();
   if (!user) {
     alert("Please Login to use Wishlist");
-    window.location.href = 'frent_end/pages/login.html';
+    window.location.href = 'frontend/pages/login.html';
     return;
   }
 

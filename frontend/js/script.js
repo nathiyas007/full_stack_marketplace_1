@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://deployment-backend-1-t8r4.onrender.com";
+const API_BASE_URL = "/api";
 
 // --- API HELPER ---
 async function apiCall(endpoint, method = 'GET', body = null, auth = false) {

@@ -24,18 +24,22 @@ async def upload_file(file: UploadFile = File(...)):
     if image_url:
         return {"url": image_url}
 
-    # FALLBACK: Save locally if Cloudinary fails (e.g. no internet/DNS error)
-    print(f"Cloudinary failed ({error}). Falling back to local storage...")
+    # FALLBACK: Save to /tmp if Cloudinary fails (ephemeral storage)
+    print(f"Cloudinary failed ({error}). Falling back to temporary local storage...")
     
     try:
         # Generate unique filename
         ext = os.path.splitext(file.filename)[1]
         unique_name = f"{uuid.uuid4()}{ext}"
-        upload_dir = "static/uploads"
         
-        # Ensure dir exists (already should, but good practice)
+        # In Vercel, only /tmp is writable
+        # But we still want to keep local static for local dev if possible
+        if os.environ.get("VERCEL"):
+            upload_dir = "/tmp/uploads"
+        else:
+            upload_dir = os.path.join(os.getcwd(), "static", "uploads")
+        
         os.makedirs(upload_dir, exist_ok=True)
-        
         file_path = os.path.join(upload_dir, unique_name)
         
         # Reset file pointer and save
@@ -43,10 +47,15 @@ async def upload_file(file: UploadFile = File(...)):
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
         
-        # Return local path (assuming server runs on localhost:8000)
-        # In a real setup, this base URL should be in .env
-        local_url = f"http://127.0.0.1:8000/static/uploads/{unique_name}"
-        return {"url": local_url, "note": "Uploaded locally due to Cloudinary connection issue"}
+        # Warning: /tmp files might not be publicly served!
+        # This fallback is primarily for debugging or local dev.
+        return {
+            "url": f"/static/uploads/{unique_name}", 
+            "note": f"Uploaded to temporary storage because Cloudinary failed: {error}"
+        }
         
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Local upload also failed: {str(e)}")
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Cloudinary error: {error}. Local fallback also failed: {str(e)}"
+        )

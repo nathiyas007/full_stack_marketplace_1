@@ -19,7 +19,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-Base.metadata.create_all(bind=engine)
+try:
+    Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"Database connection error: {e}")
 
 app.include_router(auth.router, prefix="/api")
 app.include_router(product.router, prefix="/api")

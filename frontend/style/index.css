@@ -130,7 +130,7 @@ header {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     cursor: pointer;
-    text-transform: uppercase;
+    text-transform: unset;
     letter-spacing: 0.5px;
 }
 
@@ -165,7 +165,7 @@ header {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .dropdown-menu::before {

@@ -23,7 +23,7 @@ async function loadSellerProfile() {
         } else {
             listingsContainer.innerHTML = profile.products.map(p => `
                 <div class="product-card" onclick="location.href='prd_view1.html?id=${p.id}'" style="cursor:pointer; border:1px solid #eee; border-radius:12px; overflow:hidden; background:white; position:relative;">
-                    <img src="${p.image1 || 'https://via.placeholder.com/200'}" style="width:100%; height:150px; object-fit:contain; background:#f8f9fa; padding:5px;">
+                    <img src="${getImageUrl(p.image1)}" style="width:100%; height:150px; object-fit:contain; background:#f8f9fa; padding:5px;">
                     <div style="padding:10px;">
                         <h4 style="margin:0; font-size:0.9rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${p.title}</h4>
                         <p style="color:var(--primary); font-weight:bold; margin:5px 0 0 0;">₹${p.price}</p>

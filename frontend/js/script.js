@@ -160,3 +160,21 @@ window.handleLogout = handleLogout;
 // Function exported for other files to usage
 window.apiCall = apiCall;
 window.Auth = Auth;
+window.API_BASE_URL = API_BASE_URL;
+
+window.getImageUrl = function (path) {
+    if (!path) return 'https://via.placeholder.com/300';
+    if (path.startsWith('http')) return path;
+
+    // If we have a full URL in API_BASE_URL (for local dev), use its origin
+    const apiBase = window.API_BASE_URL || '/api';
+    if (apiBase.startsWith('http')) {
+        try {
+            const origin = new URL(apiBase).origin;
+            return origin + (path.startsWith('/') ? '' : '/') + path;
+        } catch (e) {
+            console.error("Invalid API_BASE_URL", e);
+        }
+    }
+    return path;
+};

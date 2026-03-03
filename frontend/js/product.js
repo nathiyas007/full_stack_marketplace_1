@@ -82,7 +82,7 @@ async function loadProductDetails() {
 function updateMainImage() {
     const mainImg = document.getElementById('mainImg');
     if (mainImg && currentProductImages.length > 0) {
-        mainImg.src = currentProductImages[currentImgIndex];
+        mainImg.src = getImageUrl(currentProductImages[currentImgIndex]);
         // Add error handler in case URL is broken (e.g. user entered local path)
         mainImg.onerror = function () {
             this.onerror = null; // prevent loop

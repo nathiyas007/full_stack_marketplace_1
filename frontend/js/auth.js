@@ -1,8 +1,8 @@
-async function handleLogin(event) {
+async function handleLogin(event) { 
     event.preventDefault();
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
-
+    
     const user = await Auth.login(email, password);
     if (user) {
         if (user.role === 'admin') {
@@ -27,3 +27,7 @@ async function handleSignup(event) {
         window.location.href = 'login.html';
     }
 }
+
+// async function 
+// This means the function works asynchronously.
+// It can wait for data from backend without freezing the page

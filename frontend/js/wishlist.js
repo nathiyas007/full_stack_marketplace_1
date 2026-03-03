@@ -29,7 +29,7 @@ function renderWishlistItems(items) {
         const p = item.product;
         // Mocking old price for visual (10% higher)
         const oldPrice = p.price ? (p.price * 1.1).toFixed(0) : 0;
-        const image = p.image1 || 'https://via.placeholder.com/300';
+        const image = getImageUrl(p.image1);
 
         return `
         <div class="wishlist-card">

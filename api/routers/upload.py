@@ -37,7 +37,9 @@ async def upload_file(file: UploadFile = File(...)):
         if os.environ.get("VERCEL"):
             upload_dir = "/tmp/uploads"
         else:
-            upload_dir = os.path.join(os.getcwd(), "static", "uploads")
+            # Get the path to the 'api' directory
+            api_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            upload_dir = os.path.join(api_dir, "static", "uploads")
         
         os.makedirs(upload_dir, exist_ok=True)
         file_path = os.path.join(upload_dir, unique_name)

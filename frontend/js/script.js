@@ -1,4 +1,9 @@
-const API_BASE_URL = "/api";
+// Detect if we are running locally on a common dev port (like Live Server 5500 or 5501)
+// and the backend is likely on 8000.
+const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const isDevFrontend = isLocalDev && (window.location.port !== '8000' && window.location.port !== '');
+
+const API_BASE_URL = isDevFrontend ? "http://127.0.0.1:8000/api" : "/api";
 
 // --- API HELPER ---
 async function apiCall(endpoint, method = 'GET', body = null, auth = false) {
@@ -164,17 +169,18 @@ window.API_BASE_URL = API_BASE_URL;
 
 window.getImageUrl = function (path) {
     if (!path) return 'https://via.placeholder.com/300';
+
+    // If it's already a full URL, return it
     if (path.startsWith('http')) return path;
 
-    // If we have a full URL in API_BASE_URL (for local dev), use its origin
-    const apiBase = window.API_BASE_URL || '/api';
-    if (apiBase.startsWith('http')) {
-        try {
-            const origin = new URL(apiBase).origin;
-            return origin + (path.startsWith('/') ? '' : '/') + path;
-        } catch (e) {
-            console.error("Invalid API_BASE_URL", e);
-        }
+    // Ensure path starts with a slash if it's a relative path
+    let cleanPath = path.startsWith('/') ? path : '/' + path;
+
+    // Handle local development where frontend and backend are on different ports
+    if (isDevFrontend) {
+        return "http://127.0.0.1:8000" + cleanPath;
     }
-    return path;
+
+    // Default: return the path as-is (root-relative)
+    return cleanPath;
 };

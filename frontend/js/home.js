@@ -52,7 +52,9 @@ function displayProducts(products) {
                 <span class="wishlist-tooltip">${isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}</span>
           </div>
 
-          <img src="${getImageUrl(p.image1)}" alt="${p.title}" style="height:200px; object-fit:contain; width:100%; background:#f8f9fa; padding:10px;">
+          <img src="${getImageUrl(p.image1)}" alt="${p.title}" 
+               onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Image+Not+Found';"
+               style="height:200px; object-fit:contain; width:100%; background:#f8f9fa; padding:10px;">
           <div class="prd_details">
             <h2>${p.title}</h2>
             <p class="price">₹${p.price}</p>

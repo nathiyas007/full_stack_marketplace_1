@@ -18,6 +18,14 @@ def place_order(order: OrderCreate, db: Session = Depends(get_db)):
     if user and user.is_active == 0:
         raise HTTPException(status_code=403, detail="Your account is blocked. You cannot place orders.")
 
+    # Check if product is already sold or ordered
+    product = db.query(Product).filter(Product.id == order.product_id).first()
+    if not product:
+        raise HTTPException(status_code=404, detail="Product not found")
+    
+    if product.is_sold:
+        raise HTTPException(status_code=400, detail="This product has already been sold or ordered.")
+
     new_order = Order(
         user_id=order.user_id,
         product_id=order.product_id,
@@ -30,12 +38,10 @@ def place_order(order: OrderCreate, db: Session = Depends(get_db)):
     )
 
     # Mark product as sold
-    product = db.query(Product).filter(Product.id == order.product_id).first()
-    if product:
-        product.is_sold = True
-        
-        # Remove from all wishlists
-        db.query(Wishlist).filter(Wishlist.product_id == order.product_id).delete()
+    product.is_sold = True
+    
+    # Remove from all wishlists
+    db.query(Wishlist).filter(Wishlist.product_id == order.product_id).delete()
 
     db.add(new_order)
     db.commit()

@@ -1,9 +1,7 @@
-// Detect if we are running locally on a common dev port (like Live Server 5500 or 5501)
-// and the backend is likely on 8000.
 const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const isDevFrontend = isLocalDev && (window.location.port !== '8000' && window.location.port !== '');
 
-const API_BASE_URL = isDevFrontend ? "http://127.0.0.1:8000/api" : "/api";
+const API_BASE_URL = isDevFrontend ? "http://127.0.0.1:8000/api" : "/api"; // Ternary Operator
 
 // --- API HELPER ---
 async function apiCall(endpoint, method = 'GET', body = null, auth = false) {
@@ -11,11 +9,10 @@ async function apiCall(endpoint, method = 'GET', body = null, auth = false) {
         'Content-Type': 'application/json'
     };
 
-    // Simple basic auth or custom header logic if your backend requires token
-    // For now, based on your backend, it seems to not fully enforce JWT yet or uses simple checking.
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
         headers['X-User-Id'] = user.id;
+
         headers['X-User-Role'] = user.role;
     }
 

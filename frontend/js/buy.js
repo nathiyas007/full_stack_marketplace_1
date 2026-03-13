@@ -46,18 +46,26 @@ async function handleOrderSubmit(event) {
         return;
     }
 
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.innerText : "Place Order";
+
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Processing...";
+    }
+
     const params = new URLSearchParams(window.location.search);
     const productId = params.get('id');
 
     const orderData = {
         user_id: Auth.getCurrentUser().id,
-        product_id: parseInt(productId), // Backend expects INT for IDs generally in SQL models
+        product_id: parseInt(productId),
         full_name: document.getElementById('orderName').value,
         mobile: document.getElementById('orderMobile').value,
         address: document.getElementById('orderAddress').value,
         city: document.getElementById('orderCity').value,
         pincode: document.getElementById('orderPincode').value,
-        payment_method: 'COD' // Default for now
+        payment_method: 'COD'
     };
 
     try {
@@ -65,7 +73,11 @@ async function handleOrderSubmit(event) {
         alert("Order Placed Successfully! Your order is now Pending seller acceptance.");
         window.location.href = `success.html?order_id=${response.order_id}`;
     } catch (e) {
-        alert("Order Failed: " + e.message);
+        alert("Order Failed: " + (e.message || "An unexpected error occurred."));
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = originalBtnText;
+        }
     }
 }
 

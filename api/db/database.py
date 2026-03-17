@@ -8,13 +8,14 @@ load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:
-    # Use a dummy URL to prevent startup crash on Vercel if env var is missing
-    # This allowed the app to start and the global exception handler to provide better info
     engine = None
     SessionLocal = None
     print("ERROR: DATABASE_URL not found. Database functionality will be unavailable.")
 else:
-    engine = create_engine(DATABASE_URL)
+    engine = create_engine(
+        DATABASE_URL,
+        connect_args={"sslmode": "require"} 
+    )
     SessionLocal = sessionmaker(bind=engine)
 
 Base = declarative_base()

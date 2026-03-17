@@ -124,28 +124,29 @@ async function uploadImage(file) {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`
-            // Note: Content-Type not set for FormData, browser handles it
         },
         body: formData
     });
 
+    // --- IMPROVED: Read stream once as text ---
+    const bodyText = await response.text();
+    let data;
+    try {
+        data = JSON.parse(bodyText);
+    } catch (e) {
+        data = bodyText;
+    }
+
     if (!response.ok) {
         let errorMsg = 'Image upload failed';
-        try {
-            const bodyText = await response.text();
-            try {
-                const errData = JSON.parse(bodyText);
-                errorMsg = errData.detail || errorMsg;
-            } catch (e) {
-                errorMsg = bodyText || errorMsg;
-            }
-        } catch (e) {
-            errorMsg = 'Failed to read error response';
+        if (typeof data === 'object' && data.detail) {
+            errorMsg = data.detail;
+        } else if (typeof data === 'string' && data) {
+            errorMsg = data;
         }
         throw new Error(`Upload failed (${response.status}): ${errorMsg}`);
     }
 
-    const data = await response.json();
     return data.url;
 }
 

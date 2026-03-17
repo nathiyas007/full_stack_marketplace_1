@@ -12,7 +12,6 @@ async function apiCall(endpoint, method = 'GET', body = null, auth = false) {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
         headers['X-User-Id'] = user.id;
-
         headers['X-User-Role'] = user.role;
     }
 
@@ -27,29 +26,27 @@ async function apiCall(endpoint, method = 'GET', body = null, auth = false) {
 
     try {
         const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
-        const contentType = response.headers.get("content-type");
         
+        // --- IMPROVED: Read stream once as text ---
+        const bodyText = await response.text();
+        let data;
+        try {
+            data = JSON.parse(bodyText);
+        } catch (e) {
+            data = bodyText;
+        }
+
         if (!response.ok) {
             let errorMessage = 'API Error';
-            try {
-                const bodyText = await response.text();
-                try {
-                    const errorData = JSON.parse(bodyText);
-                    errorMessage = errorData.detail || errorMessage;
-                } catch (e) {
-                    errorMessage = bodyText || errorMessage;
-                }
-            } catch (e) {
-                errorMessage = 'Failed to read error response';
+            if (typeof data === 'object' && data.detail) {
+                errorMessage = data.detail;
+            } else if (typeof data === 'string' && data) {
+                errorMessage = data;
             }
             throw new Error(errorMessage || 'Unknown Server Error');
         }
 
-        if (contentType && contentType.includes("application/json")) {
-            return await response.json();
-        } else {
-            return await response.text();
-        }
+        return data;
     } catch (error) {
         console.error("API Error:", error);
         throw error;

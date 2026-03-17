@@ -24,7 +24,8 @@ app.add_middleware(
 )
 
 try:
-    Base.metadata.create_all(bind=engine)
+    if engine:
+        Base.metadata.create_all(bind=engine)
 except Exception as e:
     print(f"Database connection error: {e}")
 

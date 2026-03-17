@@ -19,7 +19,7 @@ class ProductResponse(BaseModel):
     owner: Optional[UserResponse] = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ProductCreate(BaseModel):
     title: str

@@ -27,11 +27,27 @@ async function apiCall(endpoint, method = 'GET', body = null, auth = false) {
 
     try {
         const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
+        const contentType = response.headers.get("content-type");
+        
         if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.detail || 'API Error');
+            let errorMessage = 'API Error';
+            try {
+                // Try JSON first, even if header is missing
+                const errorData = await response.json();
+                errorMessage = errorData.detail || errorMessage;
+            } catch (e) {
+                // If not JSON, get raw text (like Vercel's "A server error occurred")
+                errorMessage = await response.text();
+            }
+            throw new Error(errorMessage || 'Unknown Server Error');
         }
-        return await response.json();
+
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+            return await response.json();
+        } else {
+            return await response.text();
+        }
     } catch (error) {
         console.error("API Error:", error);
         throw error;

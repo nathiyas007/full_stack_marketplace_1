@@ -32,12 +32,15 @@ async function apiCall(endpoint, method = 'GET', body = null, auth = false) {
         if (!response.ok) {
             let errorMessage = 'API Error';
             try {
-                // Try JSON first, even if header is missing
-                const errorData = await response.json();
-                errorMessage = errorData.detail || errorMessage;
+                const bodyText = await response.text();
+                try {
+                    const errorData = JSON.parse(bodyText);
+                    errorMessage = errorData.detail || errorMessage;
+                } catch (e) {
+                    errorMessage = bodyText || errorMessage;
+                }
             } catch (e) {
-                // If not JSON, get raw text (like Vercel's "A server error occurred")
-                errorMessage = await response.text();
+                errorMessage = 'Failed to read error response';
             }
             throw new Error(errorMessage || 'Unknown Server Error');
         }

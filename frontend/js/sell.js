@@ -132,10 +132,15 @@ async function uploadImage(file) {
     if (!response.ok) {
         let errorMsg = 'Image upload failed';
         try {
-            const errData = await response.json();
-            errorMsg = errData.detail || errorMsg;
+            const bodyText = await response.text();
+            try {
+                const errData = JSON.parse(bodyText);
+                errorMsg = errData.detail || errorMsg;
+            } catch (e) {
+                errorMsg = bodyText || errorMsg;
+            }
         } catch (e) {
-            errorMsg = await response.text();
+            errorMsg = 'Failed to read error response';
         }
         throw new Error(`Upload failed (${response.status}): ${errorMsg}`);
     }

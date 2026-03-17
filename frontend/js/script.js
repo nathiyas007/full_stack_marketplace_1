@@ -42,7 +42,6 @@ async function apiCall(endpoint, method = 'GET', body = null, auth = false) {
             throw new Error(errorMessage || 'Unknown Server Error');
         }
 
-        const contentType = response.headers.get("content-type");
         if (contentType && contentType.includes("application/json")) {
             return await response.json();
         } else {

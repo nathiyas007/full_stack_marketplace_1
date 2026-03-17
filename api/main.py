@@ -13,8 +13,8 @@ from models.review import Review
 app = FastAPI()
 
 import os
-static_dir = os.path.join(os.path.dirname(__file__), "static")
-app.mount("/static", StaticFiles(directory=static_dir), name="static")
+# static_dir = os.path.join(os.path.dirname(__file__), "static")
+# app.mount("/static", StaticFiles(directory=static_dir), name="static")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

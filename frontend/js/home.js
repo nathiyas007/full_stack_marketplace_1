@@ -18,7 +18,7 @@ async function renderProducts() {
   const categoryFilter = params.get('category');
   const searchFilter = params.get('search');
 
-  let endpoint = '/products/';
+  let endpoint = '/products';
   if (categoryFilter) endpoint = `/products/category/${categoryFilter}`;
   if (searchFilter) endpoint = `/products/search/?query=${searchFilter}`;
 

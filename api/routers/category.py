@@ -7,6 +7,7 @@ router = APIRouter(prefix="/categories", tags=["Categories"])
 
 
 # GET ALL CATEGORIES
+@router.get("")
 @router.get("/")
 def get_categories(db: Session = Depends(get_db)):
     return db.query(Category).filter(Category.is_active == True).all()

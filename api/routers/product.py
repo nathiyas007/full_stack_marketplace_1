@@ -10,6 +10,7 @@ from typing import Optional
 router = APIRouter(prefix="/products", tags=["Products"])
 
 # GET ALL PRODUCTS
+@router.get("")
 @router.get("/")
 def get_all_products(db: Session = Depends(get_db)):
     return db.query(Product).filter(Product.is_active == True).all()

@@ -54,7 +54,7 @@ function displayProducts(products) {
 
           <img src="${getImageUrl(p.image1)}" alt="${p.title}" 
                onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Image+Not+Found';"
-               style="height:200px; object-fit:contain; width:100%; background:#f8f9fa; padding:10px;">
+               style="height:200px; object-fit:cover; width:100%; border-radius: var(--radius) var(--radius) 0 0;">
           <div class="prd_details">
             <h2>${p.title}</h2>
             <p class="price">₹${p.price}</p>
@@ -63,8 +63,10 @@ function displayProducts(products) {
             </span>
           </div>
           <div class="prd_action">
-            <a href="frontend/pages/prd_view1.html?id=${p.id}" style="width: 100%;">
-              <button style="width: 100%;">${p.is_sold ? 'View Sold Item' : 'View product'}</button>
+            <a href="${p.is_sold ? '#' : 'frontend/pages/prd_view1.html?id=' + p.id}" style="width: 100%; text-decoration:none;">
+              <button class="${p.is_sold ? 'disabled-btn' : ''}" ${p.is_sold ? 'disabled' : ''}>
+                ${p.is_sold ? 'Sold Out' : 'View Details'}
+              </button>
             </a>
           </div>
         </div>

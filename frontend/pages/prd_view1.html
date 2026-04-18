@@ -16,7 +16,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body onload="loadProductDetails()">
+  <body>
     <!-- Header -->
     <header>
       <div class="nav-container">
@@ -43,8 +43,6 @@
             <span>Home</span>
           </a>
 
-
-          
           <div class="nav-item dropdown">
             <i class="fa-solid fa-layer-group"></i>
             <span>Categories</span>
@@ -52,7 +50,7 @@
                 <a href="#" onclick="filterByCategory('All')">All Categories</a>
                 <a href="#" onclick="filterByCategory('Electronics')">Electronics</a>
                 <a href="#" onclick="filterByCategory('Vehicles')">Vehicles</a>
-                <a href="#" onclick="filterByCategory('Furniture')">Properties</a>
+                <a href="#" onclick="filterByCategory('Furniture')">Furniture</a>
                 <a href="#" onclick="filterByCategory('Fashion')">Fashion</a>
                 <a href="#" onclick="filterByCategory('Property')">Property</a>
             </div>
@@ -83,73 +81,90 @@
     </header>
 
     <!-- Product Content -->
-    <main>
+    <main class="page-main">
       <div class="product-page">
-        <div class="product-image">
-          <div class="img-view" style="position: relative">
-            <i
-              class="fa-solid fa-chevron-left prev-btn"
-              onclick="changeSlide(-1)"
-              style="
-                position: absolute;
-                left: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.5);
-                color: white;
-                padding: 10px;
-                cursor: pointer;
-                border-radius: 50%;
-              "
-            ></i>
-            <img
-              id="mainImg"
-              src=""
-              class="big"
-              style="width: 100%; height: 400px; object-fit: contain"
-            />
-            <i
-              class="fa-solid fa-chevron-right next-btn"
-              onclick="changeSlide(1)"
-              style="
-                position: absolute;
-                right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.5);
-                color: white;
-                padding: 10px;
-                cursor: pointer;
-                border-radius: 50%;
-              "
-            ></i>
+        <!-- Left Column: Gallery -->
+        <div class="product-gallery">
+          <div class="main-image-wrapper">
+             <img id="mainImg" src="https://via.placeholder.com/600" alt="Product Image" />
+          </div>
+          <div class="thumbnail-list" id="thumbnailList">
+             <!-- Thumbnails loaded dynamically via JS -->
           </div>
         </div>
+
+        <!-- Right Column: Details -->
         <div class="product-details">
-          <h1 id="prdTitle">Loading...</h1>
-
-          <p class="seller">Sold by <a id="prdSellerLink" href="#" style="color: var(--primary); font-weight: 600;"><span id="prdSeller">...</span></a></p>
-          <div class="prd-condition" id="prdCondition">...</div>
-
-          <div class="price-box">
-            <span class="old-price" id="prdOldPrice"></span>
-            <span class="new-price" id="prdPrice"></span>
-            <span class="offer">10% OFF</span>
-          </div>
-          <p class="description" id="prdDescription">...</p>
-          <h3>Specifications</h3>
-          <div class="spec-row">
-            <span>Category</span><span id="prdCategory"></span>
+          <div class="product-header">
+             <h1 id="prdTitle">Loading...</h1>
+             <p class="seller-info">Sold by <a id="prdSellerLink" href="#"><span id="prdSeller">...</span></a></p>
+             <div class="badges">
+                <span class="prd-condition" id="prdCondition">...</span>
+                <span class="discount-badge" id="prdDiscountBadge">10% OFF</span>
+             </div>
           </div>
 
-          <div class="action-row">
-            <a id="buyBtnLink" href="#">
-              <button class="buy-btn">Buy Now</button>
-            </a>
+          <div class="price-section">
+             <span class="new-price" id="prdPrice"></span>
+             <span class="old-price" id="prdOldPrice"></span>
+          </div>
+
+          <!-- Alert boxes -->
+          <div id="selfBuyWarning" class="alert-box warning-box" style="display: none;">
+             <i class="fa-solid fa-circle-exclamation"></i>
+             <span>You cannot buy your own product.</span>
+          </div>
+
+          <div id="soldOutBadge" class="alert-box sold-box" style="display: none;">
+             <i class="fa-solid fa-circle-check"></i>
+             <span>SOLD OUT</span>
+          </div>
+
+          <div class="action-buttons" id="actionRow">
+             <button class="btn-product primary-btn" id="addToCartBtn">
+               <i class="fa-solid fa-cart-plus"></i> Add to Cart
+             </button>
+             <a id="buyBtnLink" href="#" style="display:block; width:100%;">
+               <button class="btn-product secondary-btn">Buy Now</button>
+             </a>
+          </div>
+
+          <div class="product-info-sections">
+             <section class="info-section">
+                <h3>Key Features</h3>
+                <ul class="features-list" id="prdFeatures">
+                   <li><i class="fa-solid fa-check"></i> Premium Quality Guaranteed</li>
+                   <li><i class="fa-solid fa-check"></i> Tested and Verified</li>
+                   <li><i class="fa-solid fa-check"></i> Instant Delivery Ready</li>
+                </ul>
+             </section>
+
+             <section class="info-section">
+                <h3>Description</h3>
+                <p class="description-text" id="prdDescription">...</p>
+             </section>
+
+             <section class="info-section">
+                <h3>Specifications</h3>
+                <table class="specs-table">
+                   <tbody>
+                      <tr>
+                         <th>Category</th>
+                         <td id="prdCategory">...</td>
+                      </tr>
+                      <tr>
+                         <th>Brand</th>
+                         <td>Generic</td>
+                      </tr>
+                   </tbody>
+                </table>
+             </section>
           </div>
         </div>
       </div>
     </main>
+
+    <!-- Footer -->
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-box">

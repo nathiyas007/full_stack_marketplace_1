@@ -42,19 +42,19 @@ function displayProducts(products) {
   container.innerHTML = products.map(p => {
     const isWishlisted = userWishlistIds.has(String(p.id));
     return `
-        <div class="prd_card" style="position: relative;">
-          ${p.is_sold ? '<div class="sold-badge" style="z-index: 5;">SOLD</div>' : ''}
+        <div class="prd_card">
+          ${p.is_sold ? '<div class="sold-badge">SOLD</div>' : ''}
           
-          <div class="wishlist-wrapper" style="position: absolute; top: 15px; right: 15px; z-index: 10;">
+          <div class="wishlist-wrapper">
                 <i class="${isWishlisted ? 'fa-solid active' : 'fa-regular'} fa-heart" 
                    onclick="toggleWishlist(this, '${p.id}')"
                    aria-label="${isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}"></i>
-                <span class="wishlist-tooltip">${isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}</span>
           </div>
 
-          <img src="${getImageUrl(p.image1)}" alt="${p.title}" 
-               onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Image+Not+Found';"
-               style="height:200px; object-fit:cover; width:100%; border-radius: var(--radius) var(--radius) 0 0;">
+          <div class="prd_img_container">
+            <img src="${getImageUrl(p.image1)}" alt="${p.title}" 
+                 onerror="this.onerror=null;this.src='https://via.placeholder.com/300?text=Image+Not+Found';">
+          </div>
           <div class="prd_details">
             <h2>${p.title}</h2>
             <p class="price">₹${p.price}</p>

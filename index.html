@@ -90,20 +90,107 @@
 <!-- Hero Section -->
 <section class="hero">
   <div class="hero-content">
-    <h1>Buy & Sell Anything Easily</h1>
-    <p>Discover thousands of items nearby. From electronics to real estate, find the best deals or start selling today.</p>
+    <h1>Give Your Unused Items a New Life</h1>
+    <p>Sell what you don’t use. Buy what you need.</p>
     <div class="hero-buttons">
-      <a href="#productContainer" class="btn-primary">Browse Items</a>
-      <a href="frontend/pages/sell.html" class="btn-secondary">Start Selling</a>
+      <a href="frontend/pages/sell.html" class="btn-primary">Start Selling</a>
+      <a href="#productSection" class="btn-secondary">Browse Items</a>
+    </div>
+  </div>
+  <div class="hero-illustration">
+    <img src="frontend/assets/hero_illustration.png" alt="Happy reselling" />
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works">
+  <div class="section-container">
+    <h2>How It Works</h2>
+    <div class="steps-container">
+      <div class="step-card">
+        <div class="step-icon">1</div>
+        <h3>Upload your unused product</h3>
+        <p>Take a few photos and list your item in minutes.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">2</div>
+        <h3>Connect with buyers</h3>
+        <p>Chat with interested buyers safely within our platform.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">3</div>
+        <h3>Sell and earn money</h3>
+        <p>Complete the sale and get paid instantly.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Categories Section -->
+<section class="categories-section">
+  <div class="section-container">
+    <h2>Explore Categories</h2>
+    <div class="cat-grid">
+      <div class="cat-card" onclick="filterByCategory('Mobiles')">
+        <i class="fa-solid fa-mobile-screen"></i>
+        <span>Mobiles</span>
+      </div>
+      <div class="cat-card" onclick="filterByCategory('Vehicles')">
+        <i class="fa-solid fa-car"></i>
+        <span>Vehicles</span>
+      </div>
+      <div class="cat-card" onclick="filterByCategory('Furniture')">
+        <i class="fa-solid fa-couch"></i>
+        <span>Furniture</span>
+      </div>
+      <div class="cat-card" onclick="filterByCategory('Electronics')">
+        <i class="fa-solid fa-laptop"></i>
+        <span>Electronics</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Products -->
-<section class="prd_section">
-  <div class="prd_box" id="productContainer">
-    <p style="text-align: center; width: 100%">Loading products...</p>
+<section class="prd_section" id="productSection">
+  <div class="section-container">
+    <h2>Featured Listings</h2>
+    <div class="prd_box" id="productContainer">
+      <p style="text-align: center; width: 100%">Loading products...</p>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="benefits-section">
+  <div class="section-container">
+    <h2>Why Choose Us?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <i class="fa-solid fa-piggy-bank"></i>
+        <h3>Save Money</h3>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-leaf"></i>
+        <h3>Reduce Waste</h3>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Easy Selling</h3>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>Trusted Platform</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call To Action -->
+<section class="cta-section">
+  <div class="cta-content">
+    <h2>Start Selling Today and Turn Your Unused Items into Cash</h2>
+    <a href="frontend/pages/sell.html" class="btn-primary">Get Started Now</a>
   </div>
 </section>
 
